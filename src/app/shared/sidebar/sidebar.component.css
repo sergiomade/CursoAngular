@@ -1,0 +1,32 @@
+body {
+    padding-top: 56px;
+}
+
+.sticky-offset {
+    top: 56px;
+}
+
+#sidebar-container {
+    min-height: 88vh;   
+    background-color:white;
+    padding: 0;
+    margin-left: 01px;
+}
+
+.sidebar-expanded {
+    width: 230px;
+}
+
+.sidebar-collapsed {
+    width: 60px;
+}
+
+#sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+}
+
+.sidebar-submenu {
+    font-size:1.4rem;
+}
+

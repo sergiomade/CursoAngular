@@ -1,0 +1,89 @@
+<h3>Usuarios</h3>
+
+<form #form="ngForm" id="userform">
+
+  <div class="row">
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="id">Id:</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control"  [(ngModel)]="usuarioService.user.id" name="id" readonly>
+      </div>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="form-group">
+     <label class="control-label col-sm-3" for="usuario">Usuario:</label>
+      <div class="col-sm-9">
+       <input type="text" class="form-control" [(ngModel)]="usuarioService.user.username"  name="usuario" required>
+      </div>
+  </div>
+  </div>
+
+<div class="row">
+  <div class="form-group">
+     <label class="control-label col-sm-3" for="password">Password:</label>
+      <div class="col-sm-9">
+       <input type="password" class="form-control" [(ngModel)]="usuarioService.user.password" #password=ngModel 
+       minlength="6" name="password" required>
+     </div>
+
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"  class="alert alert-danger">
+       <div *ngIf="password.errors.required">El password es requerido.</div>
+       <div *ngIf="password.errors.minlength"> El password debe tener al menos 6 caracteres.</div>
+      </div>
+  
+  </div>
+</div>
+
+  <div class="row">
+  <div class="form-group">
+      <label class="control-label col-sm-3" for="nombre">Nombre:</label>
+       <div class="col-sm-9">
+        <input type="text" class="form-control" [(ngModel)]="usuarioService.user.nombre"  #nombre=ngModel name="nombre" required>
+      </div>
+
+        <div *ngIf="nombre.invalid && ( nombre.dirty || nombre.touched )"  class="alert alert-danger">
+        <div *ngIf="nombre.errors.required">El nombre del usuario es requerido.</div>
+        </div>
+    
+   </div>
+  </div>
+
+  <div class="row">
+      <div class="form-group">
+          <label class="control-label col-sm-3" for="email">Email:</label>
+           <div class="col-sm-9">
+            <input type="text" class="form-control" [(ngModel)]="usuarioService.user.email"  name="email" #email=ngModel required>
+          </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"  class="alert alert-danger">
+            <div *ngIf="email.errors.required">El email del usuario es requerido.</div>
+            </div>
+        
+       </div>
+      </div>
+
+ <div class="row">
+
+   <div class="form-group">
+     <label class="control-label col-sm-3" for="estatus">Estatus:</label>
+      <div class="col-sm-2">
+       <input type="checkbox" class="form-control" [(ngModel)]="usuarioService.user.estatus"  name="estatus" readonly>
+      </div>
+   
+     <label class="control-label col-sm-3" for="estatus">Administrador:</label>
+     <div class="col-sm-2">
+      <input type="checkbox" class="form-control" [(ngModel)]="usuarioService.user.Admin"  name="admin" readonly>
+    </div>
+   </div>
+
+  </div>
+
+   <div class="row">
+    <div class="form-group">
+     <button [disabled]="form.invalid" class="btn btn-primary" (click)="salvarUsuario()">Salvar</button>
+     <button [disabled]="form.invalid" class="btn btn-info" (click)="resetform()">Reset</button>
+    </div>
+   </div>
+
+</form>

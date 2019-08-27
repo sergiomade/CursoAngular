@@ -1,0 +1,19 @@
+button{
+    margin-left: 5px;
+}
+
+.caja {
+    margin-top: 10%;
+    margin-left: 25%;
+    border: 1px solid;
+    padding: 22px;
+    box-shadow: 5px 10px #888888;
+  }
+
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }

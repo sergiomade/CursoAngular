@@ -1,0 +1,32 @@
+<div *ngIf="!products">
+  <P>No hay productos para mostrar</P>
+</div>
+
+<h3>Listado de Productos</h3>
+
+<div>
+  <input class="form-control mr-sm-2 searchInput" style="border-radius: 10px" [(ngModel)]="searchText" placeholder="Buscar">
+</div>
+
+<table class="table table-striped table-bordered table-sm">
+  <thead>
+    <tr style="background-color: green; color:white">
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products | paginate: { itemsPerPage: pageSize, currentPage: pageActual} | search : searchText ">
+      <td (click)="Seleccionar(item)" >{{item.description}}</td>
+      <td (click)="Seleccionar(item)">{{item.price | currency }}</td>
+      
+      <td><button class="btn btn-warning btn-circle"  (click)="Seleccionar(item)"><i class="fa fa-check"></i></button>
+       <button class="btn btn-danger btn-circle" (click)="deleteProduct($event, item)"><i class="fa fa-times"></i></button>
+       </td>
+    </tr>
+
+  </tbody>
+ </table>
+
+ <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>

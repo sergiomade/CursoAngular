@@ -1,0 +1,24 @@
+html {
+    min-height: 100%;
+    position: relative;
+  }
+
+body {
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+.sidebar{
+    height: 600px;
+    margin-left: -14px;
+    background-color: black;
+}
+
+.footer {
+    margin-left: -14px;
+    height: 45px;
+    width: 101%;
+    position: absolute;
+    bottom: 0;
+    color: white;
+  }

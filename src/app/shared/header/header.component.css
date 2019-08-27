@@ -1,0 +1,15 @@
+body {
+    padding-top: 56px;
+}
+
+.sticky-offset {
+    top: 56px;
+}
+
+#body-row {
+    margin-left:0;
+    margin-right:0;
+}
+.navbar {
+    margin-bottom: 0px;
+}

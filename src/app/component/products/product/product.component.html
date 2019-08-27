@@ -1,0 +1,61 @@
+
+<h3>Producto</h3>
+
+<form #form="ngForm">
+
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="id">Id</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control"  [(ngModel)]="productService.product.id" 
+        #product_id=ngModel name="id" readonly>
+      </div>
+  </div>
+
+  <div class="form-group">
+     <label class="control-label col-sm-3" for="name">Referencia</label>
+      <div class="col-sm-9">
+       <input type="text" class="form-control" [(ngModel)]="productService.product.name"  
+       #name=ngModel placeholder="Enter name" name="name" required>
+      </div>
+
+       <div *ngIf="name.invalid && (name.dirty || name.touched)"  class="alert alert-danger">
+       <div *ngIf="name.errors.required">el nombre es requerido.</div>
+       </div>
+
+  </div>
+
+  <div class="form-group">
+     <label class="control-label col-sm-3" for="description">Descripción</label>
+      <div class="col-sm-9">
+       <input type="text" class="form-control" [(ngModel)]="productService.product.description" 
+       #description=ngModel placeholder="Enter Descripción" name="description" required>
+     </div>
+
+      <div *ngIf="description.invalid && (description.dirty || description.touched)"  class="alert alert-danger">
+      <div *ngIf="description.errors.required">la Descripcion es requerido.</div>
+      </div>
+ 
+  </div>
+
+  <div class="form-group">
+      <label class="control-label col-sm-3" for="price">Precio</label>
+       <div class="col-sm-9">
+        <input type="number" class="form-control" [(ngModel)]="productService.product.price" 
+        #price=ngModel placeholder="Enter precio" name="price" required>
+      </div>
+
+        <div *ngIf="price.invalid && (price.dirty || price.touched)"  class="alert alert-danger">
+        <div *ngIf="price.errors.required">El Precio es requerido.</div>
+        </div>
+    
+   </div>
+
+   <div class="col-md-12">
+    <div class="form-group botones">
+     <button [disabled]="form.invalid" class="btn btn-primary" (click)="salvarProducto()">Salvar</button>
+     <button [disabled]="form.invalid" class="btn btn-info" (click)="resetForm()">Reset</button>
+    </div>
+   </div>
+
+</form>
+
